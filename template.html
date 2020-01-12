@@ -105,8 +105,8 @@
     
     <div><a id="products"></a></div>
     <div class="site-section">
-      <div class="container">
       {% for drink in drinks %}
+      <div class="container">
         <div class="row">
           <div class="col-12 section-title text-center mb-5">
             <h2 class="d-block">{{drink.type}}</h2>
@@ -119,7 +119,7 @@
                 <div class="wine_v_1 text-center pb-4 pt-5">
                   <img src="{{info.picture}}" alt="Image" class="img-fluid">
                   {% if info.is_profitable %}
-                  <img src="images/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;">
+                    <img src="images/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;">
                   {% endif %}
                   <div>
                     <h3 class="heading mt-3 mb-3 text-dark">{{info.name}}</h3>
