@@ -46,7 +46,7 @@ def parse_drinks(items):
     return drink_specs
 
 
-def fetch_drinks(file_name='file2.txt'):
+def fetch_drinks(file_name):
 
     with open(file_name, 'r', encoding='UTF-8') as file:
         text = file.read()
