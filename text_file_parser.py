@@ -46,10 +46,15 @@ def parse_drinks(items):
     return drink_specs
 
 
-def fetch_drinks(file_name):
-
+def read_text_file(file_name):
     with open(file_name, 'r', encoding='UTF-8') as file:
         text = file.read()
+    return text
+
+
+def fetch_drinks(file_name):
+
+    text = read_text_file(file_name)
     drinks = []
     split_text = text.split('\n\n\n# ')
     for drinks_by_type in split_text:
