@@ -46,22 +46,20 @@ def parse_drinks(items):
     return drink_specs
 
 
-def fetch_drinks(file_name):
+def fetch_drinks(file_name='file2.txt'):
 
     with open(file_name, 'r', encoding='UTF-8') as file:
         text = file.read()
     drinks = []
     split_text = text.split('\n\n\n# ')
-    for specific_type_drink in split_text:
-        drink_type_name, specific_type_drink_units = separate_type_and_units(specific_type_drink)
-        split_specific_type_drink_units = specific_type_drink_units.split('\n\n')
-        drink_info_list = []
-        for drink_unit_info in split_specific_type_drink_units:
-            parsed_drink_unit_info = parse_drinks(drink_unit_info)
-            drink_info_list.append(parsed_drink_unit_info)
-        drink_type = {
-            'type': drink_type_name,
-            'info': drink_info_list,
+    for drinks_by_type in split_text:
+        drinks_type_name, drinks_by_type_units = separate_type_and_units(drinks_by_type)
+        split_drinks_by_type_units = drinks_by_type_units.split('\n\n')
+        drink_units = [parse_drinks(drink_unit) for drink_unit in split_drinks_by_type_units]
+
+        one_type_drinks = {
+            'type': drinks_type_name,
+            'units': drink_units,
         }
-        drinks.append(drink_type)
+        drinks.append(one_type_drinks)
     return drinks
