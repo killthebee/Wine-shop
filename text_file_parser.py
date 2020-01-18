@@ -23,10 +23,7 @@ def separate_type_and_units(item):
 
 def parse_drinks(items):
     specifications = items.split('\n')
-    if 'Выгодное предложение' in specifications:
-        is_profitable = True
-    else:
-        is_profitable = False
+    is_profitable = 'Выгодное предложение' in specifications # mindblow
     for specification in specifications:
         if specification.startswith('Название:'):
             name = parse_item(specification)
