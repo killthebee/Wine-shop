@@ -49,9 +49,8 @@ def read_text_file(file_name):
     return text
 
 
-def fetch_drinks(file_name):
+def parse_text(text):
 
-    text = read_text_file(file_name)
     drinks = []
     split_text = text.split('\n\n\n# ')
     for drinks_by_type in split_text:
@@ -64,4 +63,10 @@ def fetch_drinks(file_name):
             'units': drink_units,
         }
         drinks.append(one_type_drinks)
+    return drinks
+
+
+def fetch_drinks(file_name):
+    text = read_text_file(file_name)
+    drinks = parse_text(text)
     return drinks
